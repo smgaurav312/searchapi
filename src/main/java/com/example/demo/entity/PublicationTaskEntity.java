@@ -22,14 +22,14 @@ public class PublicationTaskEntity implements Serializable {
 	@Column(name = "author_id")
 	private Integer authorId;
 	
-	@Column(name = "publishing_id")
-	private Integer publishingId;
+	@Column(name = "publishing_What")
+	private String publishingWhat;
 	
 	@Column(name = "title")
 	private String title;
 	
 	@Column(name = "published_year")
-	private String publishedYear;
+	private Integer publishedYear;
 	
 	@Column(name = "category_type")
 	private String categoryType;
@@ -69,21 +69,19 @@ public class PublicationTaskEntity implements Serializable {
 
 
 
-	public Integer getPublishingId() {
-		return publishingId;
+	
+
+
+
+
+
+	public String getPublishingWhat() {
+		return publishingWhat;
 	}
 
-
-
-
-
-	public void setPublishingId(Integer publishingId) {
-		this.publishingId = publishingId;
+	public void setPublishingWhat(String publishingWhat) {
+		this.publishingWhat = publishingWhat;
 	}
-
-
-
-
 
 	public String getTitle() {
 		return title;
@@ -101,21 +99,17 @@ public class PublicationTaskEntity implements Serializable {
 
 
 
-	public String getPublishedYear() {
+
+
+
+
+	public Integer getPublishedYear() {
 		return publishedYear;
 	}
 
-
-
-
-
-	public void setPublishedYear(String publishedYear) {
+	public void setPublishedYear(Integer publishedYear) {
 		this.publishedYear = publishedYear;
 	}
-
-
-
-
 
 	public String getCategoryType() {
 		return categoryType;

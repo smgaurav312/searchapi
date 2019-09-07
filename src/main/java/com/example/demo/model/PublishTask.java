@@ -12,14 +12,14 @@ public class PublishTask {
 	@JsonProperty("authorId")
 	private Integer authorId = null;
 	
-	@JsonProperty("publishingId")
-	private Integer publishingId = null;
+	@JsonProperty("publishingWhat")
+	private String publishingWhat = null;
 	
 	@JsonProperty("title")
 	private String title = null;
 	
 	@JsonProperty("publishedYear")
-	private String publishedYear = null;
+	private Integer publishedYear = null;
 	
 	@JsonProperty("categoryType")
 	private String categoryType = null;
@@ -32,12 +32,20 @@ public class PublishTask {
 		this.authorId = authorId;
 	}
 
-	public Integer getPublishingId() {
-		return publishingId;
+	public String getPublishingWhat() {
+		return publishingWhat;
 	}
 
-	public void setPublishingId(Integer publishingId) {
-		this.publishingId = publishingId;
+	public void setPublishingWhat(String publishingWhat) {
+		this.publishingWhat = publishingWhat;
+	}
+
+	public Integer getPublishedYear() {
+		return publishedYear;
+	}
+
+	public void setPublishedYear(Integer publishedYear) {
+		this.publishedYear = publishedYear;
 	}
 
 	public String getTitle() {
@@ -48,13 +56,7 @@ public class PublishTask {
 		this.title = title;
 	}
 
-	public String getPublishedYear() {
-		return publishedYear;
-	}
-
-	public void setPublishedYear(String publishedYear) {
-		this.publishedYear = publishedYear;
-	}
+	
 
 	public String getCategoryType() {
 		return categoryType;

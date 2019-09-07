@@ -14,7 +14,7 @@ public class AuthorEntity implements Serializable {
 
 	@Id
 	@Column(name = "author_ID", insertable = false, updatable = false)
-	private long authorId;
+	private int authorId;
 
 	
 
@@ -28,13 +28,13 @@ public class AuthorEntity implements Serializable {
 
 
 
-	public long getAuthorId() {
+	public int getAuthorId() {
 		return authorId;
 	}
 
 
 
-	public void setAuthorId(long authorId) {
+	public void setAuthorId(int authorId) {
 		this.authorId = authorId;
 	}
 
