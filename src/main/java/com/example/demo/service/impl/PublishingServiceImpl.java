@@ -36,6 +36,11 @@ public class PublishingServiceImpl implements PublishingService {
 
 
 	}
+	
+	@Override
+	public void deleteAuthor(Integer authorId) {
+		authorRepository.delete(authorId);
+	}
 
 	@Override
 	public void addPublishingTasks(PublishTask publishTask) {

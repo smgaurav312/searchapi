@@ -8,7 +8,7 @@ import com.example.demo.entity.AuthorEntity;
 
 @Repository
 @Transactional
-public interface AuthorRepository extends JpaRepository<AuthorEntity, Long> {
+public interface AuthorRepository extends JpaRepository<AuthorEntity, Integer> {
 
 	AuthorEntity findByAuthorName(String authorName);
 	//public Author findByAuthorId(long patientId) throws DataAccessException;

@@ -45,6 +45,47 @@ public class PublishingApiController implements PublishingApi {
 
 		return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
 	}
+	
+	//@Override
+	public ResponseEntity<String> deleteAuthor(
+			@ApiParam(value = "author Name", required = true) @RequestParam(value = "authorName", required = true) Integer authorId) {
+
+		if (!StringUtils.isEmpty(authorId)) {
+
+			publishingService.deleteAuthor(authorId);
+
+		}
+
+		return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
+	}
+	
+	//@Override
+	public ResponseEntity<String> updateAuthor(
+			@ApiParam(value = "Author json", required = true) @Valid @RequestBody Author author) {
+
+		if (!StringUtils.isEmpty(author)) {
+
+			Author authors = author;
+			publishingService.addAuthors(authors);
+
+		}
+
+		return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
+	}
+	
+	//@Override
+		/*public ResponseEntity<List<String>> getAuthors(
+				@ApiParam(value = "Author json", required = true) @Valid @RequestBody Author author) {
+
+			if (!StringUtils.isEmpty(author)) {
+
+				Author authors = author;
+				publishingService.addAuthors(authors);
+
+			}
+
+			return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
+		}*/
 
 	@Override
 	public ResponseEntity<String> addPublishTask(

@@ -8,6 +8,7 @@ import com.example.demo.model.PublishTask;
 public interface PublishingService {
 
 	void addAuthors(Author authors);
+	void deleteAuthor(Integer authorId);
 	void addPublishingTasks(PublishTask publishTask);
 	List<Books> getAllBooksBasedOnAuthor(String authorId, String pubType, Integer publishedYear);
 	
