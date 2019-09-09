@@ -41,7 +41,30 @@ public class PublishingServiceImpl implements PublishingService {
 	public void deleteAuthor(Integer authorId) {
 		authorRepository.delete(authorId);
 	}
-
+	
+	@Override
+	public void updateAuthor(Author author) {
+		AuthorEntity authrEntity = new AuthorEntity();
+		authrEntity.setAuthorId(author.getAuthorId());
+		authrEntity.setAuthorName(author.getAuthorName());
+		authorRepository.saveAndFlush(authrEntity);
+	}
+	
+	@Override
+	public List<Author> getAllAuthors() {
+		
+		List<AuthorEntity> authorlist = authorRepository.findAll();
+		List<Author> authorListToSend  = new ArrayList<>();
+		authorlist.forEach(item->{
+			Author author = new Author();
+			author.setAuthorId(item.getAuthorId());
+			author.setAuthorName(item.getAuthorName());
+			authorListToSend.add(author);
+		});
+		return authorListToSend;
+		
+	}
+	
 	@Override
 	public void addPublishingTasks(PublishTask publishTask) {
 		PublicationTaskEntity pubTaskEntity = new PublicationTaskEntity();

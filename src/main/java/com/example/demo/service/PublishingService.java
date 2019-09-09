@@ -9,7 +9,9 @@ public interface PublishingService {
 
 	void addAuthors(Author authors);
 	void deleteAuthor(Integer authorId);
+	void updateAuthor(Author author);
 	void addPublishingTasks(PublishTask publishTask);
+	List<Author> getAllAuthors();
 	List<Books> getAllBooksBasedOnAuthor(String authorId, String pubType, Integer publishedYear);
 	
 }

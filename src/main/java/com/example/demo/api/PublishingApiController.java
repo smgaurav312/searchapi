@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.AuthorEntity;
 import com.example.demo.model.Author;
 import com.example.demo.model.Books;
 import com.example.demo.model.PublishTask;
@@ -53,10 +54,10 @@ public class PublishingApiController implements PublishingApi {
 		if (!StringUtils.isEmpty(authorId)) {
 
 			publishingService.deleteAuthor(authorId);
-
+			return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
 		}
 
-		return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
+		return new ResponseEntity<String>("Invalid Request", HttpStatus.BAD_REQUEST);
 	}
 	
 	//@Override
@@ -65,27 +66,23 @@ public class PublishingApiController implements PublishingApi {
 
 		if (!StringUtils.isEmpty(author)) {
 
-			Author authors = author;
-			publishingService.addAuthors(authors);
-
+			Author authorToUpdate = author;
+			publishingService.updateAuthor(authorToUpdate);
+			return new ResponseEntity<String>("Author updated sucessfully", HttpStatus.OK);
 		}
 
-		return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
+		return new ResponseEntity<String>("Invalid Request", HttpStatus.BAD_REQUEST);
 	}
 	
 	//@Override
-		/*public ResponseEntity<List<String>> getAuthors(
-				@ApiParam(value = "Author json", required = true) @Valid @RequestBody Author author) {
+	public ResponseEntity<List<Author>> getAllAuthors() {
 
-			if (!StringUtils.isEmpty(author)) {
 
-				Author authors = author;
-				publishingService.addAuthors(authors);
+		List<Author> authEntities = publishingService.getAllAuthors();
 
-			}
 
-			return new ResponseEntity<String>("Author added successfully", HttpStatus.OK);
-		}*/
+		return new ResponseEntity<List<Author>>(authEntities, HttpStatus.OK);
+	}
 
 	@Override
 	public ResponseEntity<String> addPublishTask(
